@@ -1,0 +1,32 @@
+body{
+  background-color: rgb(6, 14, 42);
+  font-family: 'Chivo Mono', monospace;
+}
+.square {
+   width: 280px;
+   height: 280px;
+   border: 2px dashed rgb(103, 233, 220);
+   border-radius: 20px;
+   margin-top: 10%;
+   margin-left: 40%;
+}
+
+.square > p {
+   margin-top: 10%;
+}
+
+p {
+  color: white;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+   .square {
+      border: 2px solid dashed;
+      width: 60vw;
+      height: 35vh;
+      margin-top: 25%;
+      margin-left: 18%;
+   }
+}
+
