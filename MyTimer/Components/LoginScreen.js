@@ -71,7 +71,6 @@ const LoginScreen = ({setIsAuthorized}) => {
                 </View>
               </TouchableHighlight>
               <TouchableHighlight onPress={onPressLogin}>
-                {/* Linking.openURL('https://www.google.com')}> */}
                 <View style={styles.arrowCircle}>
                   <Image
                     style={styles.arrow}

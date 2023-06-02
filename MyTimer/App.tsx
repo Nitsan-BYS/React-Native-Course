@@ -1,26 +1,13 @@
 import React, { useState } from 'react';
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './Components/LoginScreen';
 import TimerScreen from './Components/TimerScreen';
 
 import {
   Dimensions,
   SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
-  TextInput,
-  Text,
-  Button,
-  Image,
-  useColorScheme,
   View,
-  TouchableHighlight,
-  Linking,
 } from 'react-native';
-
-// const Stack = createNativeStackNavigator();
 
 const App = () =>  {
 
@@ -28,49 +15,9 @@ const App = () =>  {
   const [number, setNumber] = useState('הקלד מספר');
   const [isAuthorized, setIsAuthorized] = useState(false);
 
-  // return (
-  //   <NavigationContainer>
-  //     <Stack.Navigator>
-  //       <Stack.Screen
-  //       name="Home"
-  //       component={Home}
-  //       />
-  //       <Stack.Screen name="Timer" component={Timer}/>
-  //     </Stack.Navigator>
-  //   </NavigationContainer>
-  // );
-
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white', borderWidth: 2, borderColor: 'black'}}>
       <View style={styles.rootContainer}>
-        {/* <View style={styles.textPart}>
-          <Text>להתחברות לאפליקציית טיימר אנא הזינו את מספר הטלפון והאימייל שלכם</Text>
-          <View>
-            <TextInput
-              style={styles.input}
-              onChangeText={setText}
-              value={text}
-            />
-            <TextInput
-              style={styles.input}
-              onChangeText={onChangeNumber}
-              value={number}
-              keyboardType="numeric"
-            />
-            <View style={styles.secondComponent}>
-              <View><Text style={styles.help}>צריך עזרה?</Text></View>
-              <TouchableHighlight onPress={() =>Linking.openURL('https://www.ynet.co.il')}>
-              <View><Text style={styles.support}>יצירת קשר עם התמיכה</Text></View>
-              </TouchableHighlight>
-              <TouchableHighlight onPress={() =>
-                Linking.openURL('https://www.google.com')}>
-              <View style={styles.arrowCircle}>
-                <Image style={styles.arrow} source={require('./images/login-button-arrow.png')}/>
-              </View>
-              </TouchableHighlight>
-            </View>
-          </View>
-      </View>  */}
       <View style={{flex: 9}}>
         {isAuthorized ? (
           <TimerScreen />
