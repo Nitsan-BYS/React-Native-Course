@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import type {PropsWithChildren} from 'react';
+// import { NavigationContainer } from '@react-navigation/native';
+// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LoginScreen from './Components/LoginScreen';
+import TimerScreen from './Components/TimerScreen';
+
 import {
   Dimensions,
   SafeAreaView,
@@ -16,33 +20,30 @@ import {
   Linking,
 } from 'react-native';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+// const Stack = createNativeStackNavigator();
+
 const App = () =>  {
+
   const [text, setText] = useState('הקלד אימייל');
   const [number, setNumber] = useState('הקלד מספר');
+  const [isAuthorized, setIsAuthorized] = useState(false);
 
-  const onChangeNumber = (inputValue: string) => {
-    // Validate the input value to allow only numeric characters
-    const regex = /^[0-9]*$/; // Only allow digits (0-9)
-    if (regex.test(inputValue) || inputValue === '') {
-      setNumber(inputValue);
-    }
-  };
+  // return (
+  //   <NavigationContainer>
+  //     <Stack.Navigator>
+  //       <Stack.Screen
+  //       name="Home"
+  //       component={Home}
+  //       />
+  //       <Stack.Screen name="Timer" component={Timer}/>
+  //     </Stack.Navigator>
+  //   </NavigationContainer>
+  // );
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white', borderWidth: 2, borderColor: 'black'}}>
       <View style={styles.rootContainer}>
-      <View style={styles.headerContainer}>
-        <View>
-          <Image source={require('./images/stopwatch.png')}/>
-        </View>
-        <View style={styles.title}>
-          <Text style={styles.titleText}>My Timer</Text>
-        </View>
-      </View>
-        <View style={styles.textPart}>
+        {/* <View style={styles.textPart}>
           <Text>להתחברות לאפליקציית טיימר אנא הזינו את מספר הטלפון והאימייל שלכם</Text>
           <View>
             <TextInput
@@ -69,7 +70,14 @@ const App = () =>  {
               </TouchableHighlight>
             </View>
           </View>
-      </View> 
+      </View>  */}
+      <View style={{flex: 9}}>
+        {isAuthorized ? (
+          <TimerScreen />
+        ):(
+          <LoginScreen setIsAuthorized={setIsAuthorized}/>
+        )}
+      </View>
       </View>
     </SafeAreaView>
   );
